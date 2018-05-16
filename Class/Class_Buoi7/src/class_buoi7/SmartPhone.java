@@ -64,10 +64,11 @@ public class SmartPhone extends Product{
     @Override
     public String toString() {
         if(this.hasCamera) {
-            return super.toString() + "\t\t" + "yes";
+            return super.toString() + "\t\t" + "yes\t\t"+this.getSim();
         } else {
-            return super.toString() + "\t\t" + "no";
+            return super.toString() + "\t\t" + "no\t\t"+this.getSim();
         }
+        
     }
     
 }

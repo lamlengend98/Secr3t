@@ -6,6 +6,7 @@
 package class_buoi7;
 
 import java.util.Scanner;
+import java.io.*;
 
 /**
  *
@@ -17,6 +18,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
         Scanner input = new Scanner(System.in);
         Store s = new Store();
         do{
