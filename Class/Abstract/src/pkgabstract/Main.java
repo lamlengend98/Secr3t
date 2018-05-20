@@ -40,10 +40,17 @@ public class Main {
                 System.out.println("Dien tich hinh vuong la: "+area1);
                 break;
             case 2:
-                System.out.print("Moi ban nhap chieu dai: ");
-                rec.setLength(Integer.parseInt(input.nextLine()));
-                System.out.print("Moi ban nhap chieu rong: ");
-                rec.setWidth(Integer.parseInt(input.nextLine()));
+                do{
+                    
+                    System.out.print("Moi ban nhap chieu dai: ");
+                    rec.setLength(Integer.parseInt(input.nextLine()));
+                    System.out.print("Moi ban nhap chieu rong: ");
+                    rec.setWidth(Integer.parseInt(input.nextLine()));
+                    if(rec.getLength() < rec.getWidth()){
+                        System.out.println("Chieu dai phai lon hon chieu rong!! Moi ban nhap lai!!!");
+                    }
+                }while(rec.getLength() < rec.getWidth());
+                
                 double area2 = u.calShape(rec);
                 System.out.println("Dien tich hinh chu nhat la: "+area2);
                 break;
