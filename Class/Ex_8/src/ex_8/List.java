@@ -15,10 +15,11 @@ public class List {
     private Information[] list;
     private int size = 10;
     private int index;
+    private String ch;
     
     public List() {
         this.list = new Information[size];
-        index++;
+        index=0;
     }
     
     public void input(){
@@ -26,18 +27,18 @@ public class List {
         
         do{        
         System.out.print("Choice type: ");
-        String choice = input.nextLine();
-        if("Paper".equals(choice)){
+        ch = input.nextLine();
+        if("Paper".equals(ch)){
             Paper p = new Paper();
             p.input();
             list[index++] = p;
             break;
-        } else if("Book".equals(choice)){
+        } else if("Book".equals(ch)){
             Book b = new Book();
             b.input();
             list[index++] = b;
             break;
-        } else if("Thesis".equals(choice)){
+        } else if("Thesis".equals(ch)){
             Thesis t = new Thesis();
             t.input();
             list[index++] = t;
@@ -51,9 +52,8 @@ public class List {
         System.out.println("------PAPER------");
         for(int i = 0; i < index; i++){
             if(list[i] instanceof Paper)
-                System.out.println(list[i]);
-
-
+                System.out.println(list[i]); 
+                     
         }
         System.out.println("------BOOK------");
         for(int i = 0; i < index; i++){
@@ -68,29 +68,35 @@ public class List {
     }
     
     public void search(String cate){
-        boolean found = false;
+        for(int i = 0; i < index; i++){              
+            Boolean found = list[i].getTitle().equals(cate); 
+            if(found == true){
+                System.out.println("--------------");
+                System.out.println(list[i]);
+            }                
+            else System.out.println("not found");
+            }
+                
+//            if(list[i] instanceof Paper && list[i].getTitle().equals(cate)){
+//                System.out.println("------PAPER------");
+//                System.out.println(list[i]);
+//                found = true;
+//                break;
+//            }
+//            if(list[i] instanceof Book && list[i].getTitle().equals(cate)){
+//                System.out.println("------BOOK------");
+//                System.out.println(list[i]);
+//                found = true;
+//                break;
+//            }
+//            if(list[i] instanceof Thesis && list[i].getTitle().equals(cate)){
+//                System.out.println("------THESIS------");    
+//                System.out.println(list[i]);
+//                found = true;
+//                break;
+//            }
         
-        for(int i = 0; i < index; i++){
-            if(list[i] instanceof Paper && list[i].getTitle().equals(cate)){
-                System.out.println("------PAPER------");
-                System.out.println(list[i]);
-                found = true;
-                break;
-            }
-            if(list[i] instanceof Book && list[i].getTitle().equals(cate)){
-                System.out.println("------BOOK------");
-                System.out.println(list[i]);
-                found = true;
-                break;
-            }
-            if(list[i] instanceof Thesis && list[i].getTitle().equals(cate)){
-                System.out.println("------THESIS------");    
-                System.out.println(list[i]);
-                found = true;
-                break;
-            }
+//        if(!found)
+//            System.out.println("Not found!!");
         }
-        if(!found)
-            System.out.println("Not found!!");
-    }
 }
