@@ -36,8 +36,7 @@ public class Main {
                     l.show();
                     break;
                 case 3:
-                    System.out.print("Type title: ");
-                    l.search(new Scanner(System.in).nextLine());
+                    l.search();
                     break;
                 case 4:
                     System.exit(0);

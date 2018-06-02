@@ -16,6 +16,7 @@ public class List {
     private int size = 10;
     private int index;
     private String ch;
+    Scanner input = new Scanner(System.in);
     
     public List() {
         this.list = new Information[size];
@@ -23,28 +24,30 @@ public class List {
     }
     
     public void input(){
-        Scanner input = new Scanner(System.in);
         
-        do{        
         System.out.print("Choice type: ");
         ch = input.nextLine();
-        if("Paper".equals(ch)){
-            Paper p = new Paper();
-            p.input();
-            list[index++] = p;
+        do{                
+        switch(ch){
+            case "Paper":
+                Paper p = new Paper();
+                p.input();
+                list[index++] = p;
+                break;
+            case "Book":
+                Book b = new Book();
+                b.input();
+                list[index++] = b;
+                break;  
+            case "Thesis":
+                Thesis t = new Thesis();
+                t.input();
+                list[index++] = t;
+                break;
+            default:
+                System.out.println("Error! Choice again!!");
+        }
             break;
-        } else if("Book".equals(ch)){
-            Book b = new Book();
-            b.input();
-            list[index++] = b;
-            break;
-        } else if("Thesis".equals(ch)){
-            Thesis t = new Thesis();
-            t.input();
-            list[index++] = t;
-            break;
-        } else
-            System.out.println("Error!!");        
         }while(true);
     }
     
@@ -67,36 +70,38 @@ public class List {
         }
     }
     
-    public void search(String cate){
-        for(int i = 0; i < index; i++){              
-            Boolean found = list[i].getTitle().equals(cate); 
-            if(found == true){
-                System.out.println("--------------");
+    public void search(){
+        boolean found = false;
+        for(int i = 0; i < index; i++){
+            System.out.print("Search type: ");
+            String chon = input.nextLine();
+            System.out.print("Type title: ");
+            String name = input.nextLine();
+            switch(chon){
+            case "Paper":
+                if(list[i] instanceof Paper && list[i].getTitle().equalsIgnoreCase(name)){
+                System.out.println("------PAPER------");
                 System.out.println(list[i]);
-            }                
-            else System.out.println("not found");
-            }
-                
-//            if(list[i] instanceof Paper && list[i].getTitle().equals(cate)){
-//                System.out.println("------PAPER------");
-//                System.out.println(list[i]);
-//                found = true;
-//                break;
-//            }
-//            if(list[i] instanceof Book && list[i].getTitle().equals(cate)){
-//                System.out.println("------BOOK------");
-//                System.out.println(list[i]);
-//                found = true;
-//                break;
-//            }
-//            if(list[i] instanceof Thesis && list[i].getTitle().equals(cate)){
-//                System.out.println("------THESIS------");    
-//                System.out.println(list[i]);
-//                found = true;
-//                break;
-//            }
-        
-//        if(!found)
-//            System.out.println("Not found!!");
+                found = true;
+                break;
+                }
+            case "Book":
+                if(list[i] instanceof Book && list[i].getTitle().equalsIgnoreCase(name)){
+                System.out.println("------BOOK------");
+                System.out.println(list[i]);
+                found = true;
+                break;
+                }
+            case "Thesis":
+                if(list[i] instanceof Thesis && list[i].getTitle().equalsIgnoreCase(name)){
+                System.out.println("------THESIS------");    
+                System.out.println(list[i]);
+                found = true;
+                break;
+                }                        
+             }
+          if(!found)
+             System.out.println("Not found!!");
         }
+    }
 }
