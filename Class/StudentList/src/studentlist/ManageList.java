@@ -115,7 +115,7 @@ public class ManageList {
     }
 
     private boolean checkId(String id) {
-        boolean check = id.matches("HV\\d{3}");
+        boolean check = id.matches("^HV\\d{3}");
         return check;
     }
 }

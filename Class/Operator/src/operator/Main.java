@@ -5,6 +5,7 @@
  */
 package operator;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -13,35 +14,27 @@ import java.util.Scanner;
  */
 public class Main {
 
-    public boolean checkNumber(double num){
+    public static double inputNumber(double a) {
         Scanner input = new Scanner(System.in);
-        boolean check = true;
-        try{
-            input.nextDouble();
-        } catch(NumberFormatException e){
-            check = false;
-            System.out.println("Vui long nhap vao 1 so!!");
-        }
-        return check;
-    }
-    
-    public double inputNumber(double a){
-        Scanner input = new Scanner(System.in);
-        boolean inputA = false;
-        System.out.println("a = ");
-         a = Double.parseDouble(input.nextLine());
-        if(checkNumber(a))        
         
+        try {
+            a = Double.parseDouble(input.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Vui long nhap so!!");
+        }
         return a;
-        return 0;
     }
+
     
+
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         boolean isNext = true;
         do {
 
-            
+            System.out.print("Nhap a = ");
+            double a = inputNumber(15);
+
             System.out.print("Nhap b = ");
             int b = Integer.parseInt(input.nextLine());
 
