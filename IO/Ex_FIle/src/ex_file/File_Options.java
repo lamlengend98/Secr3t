@@ -56,9 +56,9 @@ public class File_Options {
 
         do {
             File file = goiLink();
-
-            System.out.print("Nhap ten file can xoa: ");
-            StringBuilder sb = new StringBuilder(link);
+            
+            System.out.print("Nhap ten file muon xoa: ");
+            StringBuffer sb = new StringBuffer(link);
             sb.append(new Scanner(System.in).nextLine());
             System.out.println(sb);
             file = new File(sb.toString());
@@ -95,14 +95,14 @@ public class File_Options {
                         System.out.println("File da ton tai!!");
                     } else {
                         boolean create = file.createNewFile();
-                        
+
                         System.out.print("Nhap noi dung file muon tao: ");
                         String content = new Scanner(System.in).nextLine();
                         PrintWriter cont = new PrintWriter(new File(sb.toString()));
                         cont.write(content);
                         cont.flush();
                         cont.close();
-                        
+
                         if (create) {
                             System.out.println("Tao file thanh cong!!");
                             break;
@@ -124,7 +124,7 @@ public class File_Options {
                 File file = goiLink();
 
                 if (file != null) {
-                    System.out.println("Nhap ten file can doi ten: ");
+                    System.out.print("Nhap ten file can doi ten: ");
                     StringBuilder sb = new StringBuilder(link);
                     sb.append(new Scanner(System.in).nextLine());
                     System.out.println(sb);
@@ -133,8 +133,9 @@ public class File_Options {
                     if (file.exists()) {
                         System.out.print("Nhap ten file sau khi doi ten: ");
                         String rename = new Scanner(System.in).nextLine();
+                        StringBuilder sbrn = new StringBuilder(link).append(rename);
 
-                        boolean renameFile = file.renameTo(new File(rename));
+                        boolean renameFile = file.renameTo(new File(sbrn.toString()));
                         if (renameFile) {
                             System.out.println("Doi ten thanh cong");
                             break;
@@ -144,7 +145,7 @@ public class File_Options {
                     } else {
                         System.out.println("File khong ton tai!!");
                     }
-                } 
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
