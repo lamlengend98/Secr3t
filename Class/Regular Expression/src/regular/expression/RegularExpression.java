@@ -18,8 +18,13 @@ public class RegularExpression {
 //        return ck;
 //    }
 
+//    public static boolean checkGmail(String mail){
+//        boolean check = mail.matches("^[A-Za-z](\\.?[\\w]){6,30}+@gmail.com$");
+//        return check;
+//    }
+    
     public static boolean checkGmail(String mail){
-        boolean check = mail.matches("^[A-Za-z](\\.?[\\w]){6,30}+@gmail.com$");
+        boolean check = mail.matches("^(AT|CT)\\w{2,3}$");
         return check;
     }
     
