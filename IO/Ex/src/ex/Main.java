@@ -6,9 +6,7 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-
         StudentManager s = new StudentManager();
-
         do {
             System.out.println("================================");
             System.out.println("1. Add a student.");
@@ -32,6 +30,7 @@ public class Main {
                     String name = new Scanner(System.in).nextLine();
                     System.out.println("");
                     s.search(name);
+                    break;
                 case 5:
                     System.exit(0);
                 default:

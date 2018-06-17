@@ -88,9 +88,9 @@ public class StudentManager extends Student {
                 System.out.println("Vui long nhap dung dinh dang!!");
             }
         } while (true);
-        ss.write(studentList);
         this.studentList[index] = student;
         index++;
+        ss.write(studentList);
            
     }
 

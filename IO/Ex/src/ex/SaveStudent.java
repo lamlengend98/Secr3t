@@ -21,7 +21,7 @@ import java.util.*;
 public class SaveStudent implements Serializable{
     public void read(Student[] studentList) {
         try {
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("L:/Demo/studentList.dat"));
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("L:/Demo/studentList.txt"));
             oos.writeObject(studentList);
             oos.flush();
             oos.close();
@@ -34,7 +34,7 @@ public class SaveStudent implements Serializable{
 
     public void write(Student[] studentList) {
         try {
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("L:/Demo/studentList.dat"));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("L:/Demo/studentList.txt"));
             studentList = (Student[]) ois.readObject();
             ois.close();
 
