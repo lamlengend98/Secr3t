@@ -5,6 +5,8 @@
  */
 package file_1;
 
+import java.util.Scanner;
+
 /**
  *
  * @author USER
@@ -16,11 +18,11 @@ public class Main {
      */
     public static void main(String[] args) {
         NhanVien nv = new NhanVien();
-        WriteFile wf = new WriteFile();
-        wf.input();
-        wf.toString();
-        wf.wFile();
-        wf.rFile();
+        WRFile wrf = new WRFile();
+        nv.show();
+//        System.out.println(nv.toString());
+        nv.wFile();
+        nv.rFile();
     }
 
 }

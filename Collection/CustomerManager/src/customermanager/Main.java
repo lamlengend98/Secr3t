@@ -26,8 +26,17 @@ public class Main {
                     csm.add();
                     break;
                 case 3:
+                    do{
                     System.out.print("Id: ");
-                    csm.search(Integer.parseInt(input.nextLine()));
+                    String id = input.nextLine();
+                    if(id.matches("\\d{1,100}")){
+                        csm.search(id);
+                        break;
+                    }
+                    else{
+                        System.out.println("ID doesn't include words");
+                    }
+                    }while(true);
                     break;
                 case 4:
                     csm.save();

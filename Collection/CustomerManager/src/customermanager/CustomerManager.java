@@ -17,36 +17,77 @@ public class CustomerManager extends Customer {
     private ArrayList<Customer> listCustomer = new ArrayList<>();
     Scanner input = new Scanner(System.in);
 
+    public boolean checkW(String words){
+        boolean check = words.matches("\\D{1,100}");
+        return check;
+    }
+    
+    public boolean checkN(String number){
+        boolean check = number.matches("\\d{1,100}");
+        return check;
+    }
+    
     public void add() {
         Customer csm = new Customer();
 
-        System.out.print("Id: ");
-        csm.setId(Integer.parseInt(input.nextLine()));
+        do {
+            System.out.print("Id: ");
+            String id = input.nextLine();
+            if (checkN(id)) {
+                csm.setId(id);
+                break;
+            } else {
+                System.out.println("ID doesn't include words");
+            }
+
+        } while (true);
+        
+        do{
         System.out.print("Name: ");
-        csm.setName(input.nextLine());
+        String name = input.nextLine();
+        if(checkW(name)){
+            csm.setName(name);
+            break;
+        }
+        else{
+            System.out.println("Name doesn't include number");
+        }
+        
+        }while(true);
+        
         System.out.print("Address: ");
         csm.setAddress(input.nextLine());
+        
+        do{
         System.out.print("Age: ");
-        csm.setAge(Integer.parseInt(input.nextLine()));
+        String age = input.nextLine();
+        if(checkN(age)){
+            csm.setAge(age);
+            break;
+        }
+        else{
+            System.out.println("Age doesn't include words");
+        }
+        }while(true);
 
         listCustomer.add(csm);
     }
 
-    public void search(int id) {
+    public void search(String id) {
         boolean found = false;
         for (int i = 0; i < listCustomer.size(); i++) {
-            if (listCustomer.get(i).getId() == id) {
+            if (listCustomer.get(i).getId().equals(id)) {
                 System.out.println(listCustomer.get(i));
                 found = true;
+                break;
             }
-        }
-
-        if (!found) {
-            System.out.println("Customer not found!!!");
+            else{
+                System.out.println("Customer not found!!!");
+                found = false;
+            }
         }
     }
 
-   
 
     public boolean load(String file) {
         try {

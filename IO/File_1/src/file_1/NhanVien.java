@@ -5,6 +5,10 @@
  */
 package file_1;
 
+import java.util.ArrayList;
+import java.io.*;
+import java.util.Scanner;
+
 /**
  *
  * @author USER
@@ -15,9 +19,9 @@ public class NhanVien extends Person {
     private double heSoLuong;
     private int thamNien;
     private double luong;
-    
+    private ArrayList<NhanVien> listNV = new ArrayList<>();
+     
 
-    
     public NhanVien(String phongBan, double heSoLuong, int thamNien, double luong) {
         this.phongBan = phongBan;
         this.heSoLuong = heSoLuong;
@@ -65,7 +69,7 @@ public class NhanVien extends Person {
     }
 
     @Override
-    public void show() {        
+    public void show() {
         super.show();
         System.out.print("Phong Ban: ");
         this.setPhongBan(input.nextLine());
@@ -75,13 +79,45 @@ public class NhanVien extends Person {
         this.setThamNien(input.nextInt());
         System.out.print("Luong co ban: ");
         this.setLuong(input.nextDouble());
-        
+        listNV.add(this);
     }
 
     @Override
     public String toString() {
-        return super.toString() + " $ Phong ban: " + getPhongBan() + " $ He so luong: " + getHeSoLuong()
-                + " $ Tham nien: " + getThamNien() + " $ Luong co ban: " + getLuong() + " $ Luong thuc: " + luongThuc();
+        return super.toString() + " $ Phong ban: " + this.getPhongBan() + " $ He so luong: " + this.getHeSoLuong()
+                + " $ Tham nien: " + this.getThamNien() + " $ Luong co ban: " + this.getLuong() + " $ Luong thuc: " + this.luongThuc();
     }
 
+    public boolean rFile() {
+        String file = new Scanner(System.in).nextLine();
+        try {
+            ObjectInputStream ois
+                    = new ObjectInputStream(
+                            new FileInputStream(file));
+            listNV = (ArrayList<NhanVien>) ois.readObject();
+            ois.close();
+            for (NhanVien person : listNV) {
+                System.out.println(person);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
+
+    public boolean wFile() {
+        String file = new Scanner(System.in).nextLine();
+        try {
+            ObjectOutputStream oos
+                    = new ObjectOutputStream(
+                            new FileOutputStream(file));
+            oos.writeObject(listNV);
+            oos.flush();
+            oos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
+    
 }

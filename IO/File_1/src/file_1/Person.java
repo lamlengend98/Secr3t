@@ -5,13 +5,14 @@
  */
 package file_1;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 /**
  *
  * @author USER
  */
-public class Person {
+public class Person implements Serializable{
     private String name;
     private String birthday;
     private String address;
@@ -73,7 +74,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Ten: " + getName() + " $ Ngay sinh: " + getBirthday() + " $ Dia chi: " + getAddress() + " $ Gioi tinh: " + getGender();
+        return "Ten: " + this.getName() + " $ Ngay sinh: " + this.getBirthday() + " $ Dia chi: " + this.getAddress() + " $ Gioi tinh: " + this.getGender();
     }
     
     

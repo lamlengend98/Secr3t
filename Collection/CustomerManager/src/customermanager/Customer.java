@@ -12,26 +12,26 @@ import java.io.Serializable;
  * @author USER
  */
 public class Customer implements Serializable{
-    int id;
+    private String id;
     private String name;
     private String address;
-    private int age;
+    private String age;
 
     public Customer() {
     }
 
-    public Customer(int id, String name, String address, int age) {
+    public Customer(String id, String name, String address, String age) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.age = age;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -51,17 +51,17 @@ public class Customer implements Serializable{
         this.address = address;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
     @Override
     public String toString() {
-        return "=====\nName: " + name + "\nAddress: " + address + "\nAge: " + age;
+        return "=====\nName: " + this.getName() + "\nAddress: " + this.getAddress() + "\nAge: " + this.getAge();
     }
     
 }
