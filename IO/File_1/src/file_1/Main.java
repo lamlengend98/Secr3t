@@ -18,7 +18,7 @@ public class Main {
      */
     public static void main(String[] args) {
         NhanVien nv = new NhanVien();
-        WRFile wrf = new WRFile();
+//        WRFile wrf = new WRFile();
         nv.show();
 //        System.out.println(nv.toString());
         nv.wFile();

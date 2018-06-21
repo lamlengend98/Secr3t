@@ -13,7 +13,7 @@ import java.util.Scanner;
  *
  * @author USER
  */
-public class NhanVien extends Person {
+public class NhanVien extends Person implements Serializable{
 
     private String phongBan;
     private double heSoLuong;
