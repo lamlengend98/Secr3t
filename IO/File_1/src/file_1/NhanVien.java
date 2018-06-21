@@ -96,8 +96,8 @@ public class NhanVien extends Person implements Serializable{
                             new FileInputStream(file));
             listNV = (ArrayList<NhanVien>) ois.readObject();
             ois.close();
-            for (NhanVien person : listNV) {
-                System.out.println(person);
+            for (NhanVien nv : listNV) {
+                System.out.println(nv);
             }
         } catch (Exception e) {
             e.printStackTrace();
