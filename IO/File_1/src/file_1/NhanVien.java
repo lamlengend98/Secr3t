@@ -65,7 +65,7 @@ public class NhanVien extends Person implements Serializable{
     }
 
     public double luongThuc() {
-        return this.getLuong() * this.getHeSoLuong() * (1 + (this.getThamNien() / 100));
+        return this.getLuong() * (this.getHeSoLuong() * (1 + (this.getThamNien() / 100)));
     }
 
     @Override

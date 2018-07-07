@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author USER
  */
-public class Person implements Serializable{
+public class Person{
     private String name;
     private String birthday;
     private String address;
@@ -74,7 +74,7 @@ public class Person implements Serializable{
 
     @Override
     public String toString() {
-        return "Ten: " + this.getName() + " $ Ngay sinh: " + this.getBirthday() + " $ Dia chi: " + this.getAddress() + " $ Gioi tinh: " + this.getGender();
+        return "Ten: " + name + " $ Ngay sinh: " + birthday + " $ Dia chi: " + address + " $ Gioi tinh: " + gender;
     }
     
     
