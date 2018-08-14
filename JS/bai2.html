@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>Name: </td>
+			<td>
+				<input type="text" name="name" id="name" required>
+			</td>
+			<td>
+				<span id="emptyName"><!--  -->This field is required</span>
+			</td>
+		</tr>
+		<tr>
+			<td>Email: </td>
+			<td>
+				<input type="text" name="email" id="website" required>
+			</td>
+			<td>
+				<span id="emptyEmail">A valid email address is required</span>
+			</td>
+		</tr>
+		<tr>
+			<td>Website</td>
+			<td>
+				<input type="text" name="website" id="website" required>
+			</td>
+			<td>
+				<span id="emptyWebsite">A valid url is required</span>
+			</td>
+		</tr>
+		<tr>
+			<td>Message: </td>
+			<td>
+				<textarea name="message" id="message" style="width: 154.5px; height: 40px" required></textarea>
+			</td>
+			<td>
+				<span id="emptyMessage">
+					
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<input type="submit" name="submit" id="submit">
+			</td>
+		</tr>
+	</table>
+	<script>
+		if (document.getElementById('submit').click) {
+			if (document.getElementById('name').value === "") {
+				document.getElementById('name').innerText = emptyName; 
+				document.getElementById('name').style.border = "2px solid red";
+			}
+			if (document.getElementById('email').value === "") {
+				document.getElementById('email').innerText = emptyEmail;
+				document.getElementById('email').style.border = "2px solid red"; 
+			}
+			if (document.getElementById('website').value === "") {
+				document.getElementById('website').innerText = emptyWebsite; 
+				document.getElementById('website').style.border = "2px solid red";
+			}
+			if (document.getElementById('message').value === "") {
+				document.getElementById('message').innerText = emptyMessage; 
+				document.getElementById('message').style.border = "2px solid red";
+			}
+		}
+	</script>
+</body>
+</html>

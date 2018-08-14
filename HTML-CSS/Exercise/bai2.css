@@ -1,9 +1,8 @@
 
 
 body{
-	width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+	width: 800px;
+    
 
 }
 .container{
@@ -165,7 +164,7 @@ body{
 }
 .about1{
 	font-size: 15px;
-	padding:  0 360px 20px 20px;
+	padding:  0 400px 20px 20px;
 	float: right;
 }
 .about2{

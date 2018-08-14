@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function process() {
+            var elementA = document.getElementById("num1");
+            var elementB = document.getElementById("num2");
+            var elementSUM = document.getElementById("sum");
+            var elementSUB = document.getElementById("sub");
+            var elementMULTI = document.getElementById("multi");
+            var elementDIV = document.getElementById("div");
+            
+            var sum = parseInt(elementA.value) + parseInt(elementB.value);
+            var sub = parseInt(elementA.value) - parseInt(elementB.value);
+            var multi = parseInt(elementA.value) * parseInt(elementB.value);
+            var div = parseInt(elementA.value) / parseInt(elementB.value);
+            
+            elementSUM.innerText = sum;
+            elementSUB.innerText = sub;
+            elementMULTI.innerText = multi;
+            elementDIV.innerText = div;
+        }
+	</script>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>
+				<p>So thu 1: </p>
+			</td>
+			<td>
+				<input type="text" name="num1" id="num1">
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<button style="border-radius: 5px ;width: 40px; height: 20px" onclick="process()">+</button>
+				<button style="border-radius: 5px ;width: 40px; height: 20px" onclick="process()">-</button>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<button style="border-radius: 5px ;width: 40px; height: 20px" onclick="process()">*</button>
+				<button style="border-radius: 5px ;width: 40px; height: 20px" onclick="process()">/</button>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>So thu 2: </p>
+			</td>
+			<td>
+				<input type="text" name="num2" id="num2">
+			</td>
+		</tr>
+		<tr>
+			<td>Ket qua: </td>
+			<td>
+				<span id="sum"></span>
+			</td>
+		</tr>
+	</table>
+	
+</body>
+</html>										
