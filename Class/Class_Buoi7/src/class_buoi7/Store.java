@@ -15,7 +15,6 @@ public class Store {
     private Product[] products;
     private int size = 10;
     int index = 0;
-    int index2= 0;
     Scanner input = new Scanner(System.in);
     int choice;
 
