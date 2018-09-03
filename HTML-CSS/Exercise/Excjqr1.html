@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <style>
+	    .error {
+	        color: red;
+	        display: none;
+	    }
+	    .input-error {
+	        border: 1px solid red;
+	    }
+	    .input-success {
+	        border: 1px solid #18c002;
+	    }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="col-md-6 col-md-offset-3">
+            <h2>Billing address</h2>
+            <form>
+
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label for="email">First name</label>
+                        <input type="email" class="form-control" id="fname">
+                        <p class="error">Valid first name is required.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email">Last name</label>
+                        <input type="email" class="form-control" id="lname">
+                        <p class="error">Valid last name is required.</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">@</span>
+                        <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <p class="error">Valid last name is required.</p>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email (Optional)</label>
+                    <input type="email" class="form-control input-success" id="email" placeholder="you@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" id="address" placeholder="1234 Main Str">
+                </div>
+                <div class="form-group">
+                    <label for="address">Address 2 (Optional)</label>
+                    <input type="text" class="form-control input-success" id="address2" placeholder="Appartment or Suite">
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-5">
+                        <label for="email">Country</label>
+                        <select class="form-control" id="sel1">
+                            <option>Choose...</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="email">State</label>
+                        <select class="form-control" id="sel1">
+                            <option>Choose...</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="email">Zip</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                </div>
+
+                <div class="checkbox">
+                    <label><input type="checkbox"> Shipping address is the same as my billing address</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox"> Save this information for next time</label>
+                </div>
+                <button type="submit" class="btn btn-block btn-primary">Continue to checkout</button>
+            </form>
+        </div>
+
+    </div>
+
+	<script src="./jquery-1.9.1.min.js"></script>
+	    <script src="js/bootstrap.min.js"></script>
+	    <script>
+	    	   
+			$('.btn').click(function() { 
+				$(".error").hide();
+				$('#fname').each(function(){
+					if( $(this).val().length == 0){
+						$(".error").show();
+						$('#fname').addClass('input-error');
+					} else {
+						$('#fname').removeClass('input-error');
+					}
+			    });
+			    $('#lname').each(function(){
+					if( $(this).val().length == 0){
+						$(".error").show();
+						$('#lname').addClass('input-error');
+					} else {
+						$('#lname').removeClass('input-error');
+					}
+			    });
+
+			    $('.form-control').each(function(){
+					if( $(this).val().length == 0){
+						$(".error").show();
+						$('.form-control').addClass('input-error');
+					} else {
+						$('.form-control').removeClass('input-error');
+					}
+			    });
+			    event.preventDefault();
+			});
+    </script>
+</body>
+	
+
+
+</html>

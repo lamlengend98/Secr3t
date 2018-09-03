@@ -38,7 +38,7 @@ public class Dat extends Dat_Nha {
 
     @Override
     public String toString() {
-        return super.toString() + ", loai dat=" + this.getLoaiDat() + ", tien dat=" + Dat() + "}"; 
+        return super.toString() + ", loai dat=" + this.getLoaiDat() + ", tien dat=" + Dat() + '}'; 
     }
     
     public double Dat()

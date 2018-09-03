@@ -36,7 +36,7 @@ public class Nha extends Dat_Nha {
 
     @Override
     public String toString() {
-        return super.toString() + ", loai nha=" + this.getLoaiNha() + ", tien nha=" + tienNha() + "}";
+        return super.toString() + ", loai nha=" + this.getLoaiNha() + ", tien nha=" + tienNha() + '}';
     }
 
     

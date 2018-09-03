@@ -10,29 +10,24 @@ package oop_student;
  * @author USER
  */
 public class Student extends Person {
-    private String classes;
+    private int numOfStudents;
+
+    public int getNumOfStudents() {
+        return numOfStudents;
+    }
+
+    public void setNumOfStudents(int numOfStudents) {
+        this.numOfStudents = numOfStudents;
+    }
+
+    public Student(int numOfStudents) {
+        this.numOfStudents = numOfStudents;
+    }
 
     public Student() {
     }
 
-    public String getClasses() {
-        return classes;
-    }
-
-    public void setClasses(String classes) {
-        this.classes = classes;
-    }
-
-    @Override
-    public String toString() {
-        return super.toString() + "\t\t\t" + this.getClasses();
-    }
-
-    @Override
-    public void print() {
-        super.print(); 
-        System.out.print("Class: ");
-        this.setClasses(input.nextLine());
-    }
+    
+    
     
 }
