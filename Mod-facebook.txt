@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin&subset=vietnamese');
+*, a, input, div, body, html, p, h1, h2, h3, h4, h5, span{
+   font-family: 'Cabin', sans-serif !important;
+}
+body{
+   overflow-x: hidden;
+}
+#pagelet_canvas_nav_content, .fbSidebarGripper{
+   display: none
+}
+._2t-a{
+   width: 100%;
+   background: linear-gradient(#069,#00d77d);  
+   background-size: cover; color: white !important
+}
+p{
+   color: black
+}
+._3z_5{
+   background-color: #fa3e3e;
+}
+._50mz span:hover{
+   text-decoration: none;
+}
+.titlebarText{
+   color: white !important;
+}
+.fbNub._50mz .fbNubFlyoutTitlebar{
+   background:linear-gradient(#34e89e,#0f3443) !important;
+}
+._1nc6 ._1aa6{
+   background:linear-gradient(#069,#00d77d)
+}
+._2s1x ._2s1y{
+   border: none !important;
+}
+._4oes{
+   display: none !important;
+}
+.selected{
+   background:none;
+}
+a[href="https://www.facebook.com/settings?ref=mb&drop"]{
+   color: white;
+   background: transparent !important;
+}
+._9jo{
+   background: transparent !important;
+
+}
+._54nh{
+   background: transparent !important;
+   color: #1d2129;
+}
+button{
+   border: none;
+}
+._6a ._6b{
+   background: transparent;
+}
+._5w1r, ._3_om, ._5wdf 
+{
+   border-radius: 8px;
+} 
+._558b ._54nf {
+    padding: 5px 0;
+}
+.59pe{
+border-radius: 10px;
+}
+._39y5{
+width: 185px;
+border-radius: 31px;
+height: 30px;
+color: green;
+}
+._39y5:hover{
+   color: green;
+   background-color: white;
+}
+._517h{
+border-radius: 10px;
