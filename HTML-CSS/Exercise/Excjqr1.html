@@ -7,11 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+	<script src=""></script>
     <style>
 	    .error {
 	        color: red;
-	        display: none;
 	    }
 	    .input-error {
 	        border: 1px solid red;
@@ -32,67 +31,78 @@
                 <div class="form-group row">
                     <div class="col-md-6">
                         <label for="email">First name</label>
-                        <input type="email" class="form-control" id="fname">
-                        <p class="error">Valid first name is required.</p>
+                        <input type="email" class="form-control fname" id="fname">
+                        <span class="error" id="fname_error_message"></span>
                     </div>
                     <div class="col-md-6">
                         <label for="email">Last name</label>
-                        <input type="email" class="form-control" id="lname">
-                        <p class="error">Valid last name is required.</p>
+                        <input type="email" class="form-control lname" id="lname">
+                        <span class="error" id="lname_error_message"></span>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="username">Username</label>
                     <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1">@</span>
-                        <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+                        <span class="input-group-addon uname" id="basic-addon1">@</span>
+                        <input type="text" class="form-control uname" id="uname" placeholder="Username" aria-describedby="basic-addon1">
                     </div>
-                    <p class="error">Valid last name is required.</p>
+                    <span class="error" id="uname_error_message"></span>
                 </div>
                 <div class="form-group">
                     <label for="email">Email (Optional)</label>
-                    <input type="email" class="form-control input-success" id="email" placeholder="you@example.com">
+                    <input type="email" class="form-control email" id="email" placeholder="you@example.com">
+                    <span class="error" id="email_error_message"></span>
                 </div>
+                    
                 <div class="form-group">
                     <label for="address">Address</label>
-                    <input type="text" class="form-control" id="address" placeholder="1234 Main Str">
+                    <input type="text" class="form-control address" id="address" placeholder="1234 Main Str">
+                    <span class="error" id="address_error_message"></span>
                 </div>
+                    
                 <div class="form-group">
                     <label for="address">Address 2 (Optional)</label>
-                    <input type="text" class="form-control input-success" id="address2" placeholder="Appartment or Suite">
+                    <input type="text" class="form-control address2" id="address2" placeholder="Appartment or Suite">
+                    <span class="error" id="address2_error_message"></span>
                 </div>
+                    
 
                 <div class="form-group row">
                     <div class="col-md-5">
                         <label for="email">Country</label>
-                        <select class="form-control" id="sel1">
+                        <select class="form-control sel1" id="sel1">
                             <option>Choose...</option>
                             <option>2</option>
                             <option>3</option>
                             <option>4</option>
                         </select>
+                        <span class="error" id="choose1_error_message"></span>
                     </div>
                     <div class="col-md-4">
                         <label for="email">State</label>
-                        <select class="form-control" id="sel1">
+                        <select class="form-control sel2" id="sel2">
                             <option>Choose...</option>
                             <option>2</option>
                             <option>3</option>
                             <option>4</option>
                         </select>
+                        <span class="error" id="choose2_error_message"></span>
                     </div>
                     <div class="col-md-3">
                         <label for="email">Zip</label>
-                        <input type="email" class="form-control" id="email">
+                        <input type="email" class="form-control zip" id="zip">
+                        <span class="error" id="zip_error_message"></span>
                     </div>
                 </div>
 
                 <div class="checkbox">
-                    <label><input type="checkbox"> Shipping address is the same as my billing address</label>
+                    <label><input type="checkbox" id="cb1"> Shipping address is the same as my billing address</label>
+                    <span class="error" id="cb1_error_message"></span>
                 </div>
                 <div class="checkbox">
-                    <label><input type="checkbox"> Save this information for next time</label>
+                    <label><input type="checkbox" id="cb2"> Save this information for next time</label>
+                    <span class="error" id="cb2_error_message"></span>
                 </div>
                 <button type="submit" class="btn btn-block btn-primary">Continue to checkout</button>
             </form>
@@ -103,37 +113,222 @@
 	<script src="./jquery-1.9.1.min.js"></script>
 	    <script src="js/bootstrap.min.js"></script>
 	    <script>
-	    	   
-			$('.btn').click(function() { 
-				$(".error").hide();
-				$('#fname').each(function(){
-					if( $(this).val().length == 0){
-						$(".error").show();
-						$('#fname').addClass('input-error');
-					} else {
-						$('#fname').removeClass('input-error');
-					}
-			    });
-			    $('#lname').each(function(){
-					if( $(this).val().length == 0){
-						$(".error").show();
-						$('#lname').addClass('input-error');
-					} else {
-						$('#lname').removeClass('input-error');
-					}
-			    });
+	    	$("#fname_error_message").hide();
+			$("#lname_error_message").hide();
+			$("#uname_error_message").hide();
+			$("#email_error_message").hide();
+			$("#address_error_message").hide();
+			$("#address2_error_message").hide();
+			$("#choose1_error_message").hide();
+			$("#choose2_error_message").hide();
+			$("#zip_error_message").hide();
+			$("#cb1_error_message").hide();
+			$("#cb2_error_message").hide();
 
-			    $('.form-control').each(function(){
-					if( $(this).val().length == 0){
-						$(".error").show();
-						$('.form-control').addClass('input-error');
-					} else {
-						$('.form-control').removeClass('input-error');
-					}
-			    });
-			    event.preventDefault();
+			var error_fname = false;
+			var error_lname = false;
+			var error_uname = false;
+			var error_email = false;
+			var error_address = false;
+			var error_address2 = false;
+			var error_choose1 = false;
+			var error_choose2 = false;
+			var error_zip = false;
+			var error_cb1 = false;
+			var error_cb2 = false;
+
+	    	$('.btn').click(function(){
+				check_fname();
+				check_lname();
+				check_uname();
+				check_email();
+				check_address();
+				check_address2();
+				check_choose1();
+				check_choose2();
+				check_zip();
+				check_cb1();
+				check_cb2();
 			});
-    </script>
+			
+			function check_cb1(){
+				if (("#cb1").prop("checked", false)){
+					$("#cb1_error_message").show();
+					$("#cb1_error_message").html("Please select");
+					error_cb1 = true;
+				} else if (("#cb1").prop("checked", true)){
+					$("#cb1_error_message").hide();
+				}
+				event.preventDefault();
+			}
+
+			function check_cb2(){
+				if (("#cb2").prop("checked", false)){
+					$("#cb2_error_message").html("Please select");
+					$("#cb2_error_message").show();
+					error_cb2 = true;
+				} else {
+					$("#cb2_error_message").hide();
+				}
+				event.preventDefault();
+			}
+
+			function check_fname() {
+				var fname_length = $('#fname').val().length;
+
+				if(fname_length == 0){
+					$("#fname_error_message").html("This field is not required");
+					$("#fname_error_message").show();
+					error_fname = true;
+				}
+				else if(fname_length > 0 && (fname_length < 5 || fname_length > 20)){
+					$("#fname_error_message").html("Should be between 5-20 characters");
+					
+					$("#fname_error_message").show();
+					error_fname = true;
+				}
+				else{
+					$("#fname_error_message").hide();
+				}
+				event.preventDefault();
+			}
+
+			function check_lname(){
+				var lname_length = $("#lname").val().length;
+
+				if (lname_length == 0) {
+					$("#lname_error_message").html("This field is not required");
+					$("#lname_error_message").show();
+					
+						error_lname = true;
+				}
+				else if(lname_length > 0 && (lname_length < 5 || lname_length > 20)){
+					$("#lname_error_message").html("Should be between 5-20 characters");
+					$("#lname_error_message").show();
+					$("#lname_error_message").css("style.border = '1px solid red'");
+					error_lname = true;
+				}
+				else{
+					$("#lname_error_message").hide();
+				}
+				event.preventDefault();
+			}
+
+			function check_uname(){
+				var uname_length = $("#uname").val().length;
+
+				if (uname_length == 0) {
+					$("#uname_error_message").html("This field is not required");
+					$("#uname_error_message").show();
+						error_uname = true;
+				}
+				else if(uname_length > 0 && (uname_length < 5 || uname_length > 20)){
+					$("#uname_error_message").html("Should be between 5-20 characters");
+					$("#uname_error_message").show();
+					$("#uname_error_message").css("style.border = '1px solid red'");
+					error_uname = true;
+				}
+				else{
+					$("#uname_error_message").hide();
+				}
+				event.preventDefault();
+			}
+
+			function check_email(){
+				var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+
+				if (pattern.test($("#email").val())) {
+					$("email_error_message").hide();
+				}
+				else{
+					$("#email_error_message").html("Invalid email address");
+					$("#email_error_message").show();
+					$("#email_error_message").css("border-color","#FF0000");
+						error_uname = true;
+				}
+				event.preventDefault();
+			}
+
+			function check_address(){
+				var address_length = $("#address").val().length;
+
+				if (address_length == 0) {
+					$("#address_error_message").html("This field is not required");
+					$("#address_error_message").show();
+						error_address = true;
+				}
+				else if(address_length > 0 && (address_length < 5 || address_length > 20)){
+					$("#address_error_message").html("Should be between 5-20 characters");
+					$("#address_error_message").show();
+					$("#address_error_message").css("style.border = '1px solid red'");
+					error_address = true;
+				}
+				else{
+					$("#address_error_message").hide();
+				}
+				event.preventDefault();
+			}
+
+			function check_address2(){
+				var address2_length = $("#address2").val().length;
+
+				if (address2_length == 0) {
+					$("#address2_error_message").html("This field is not required");
+					$("#address2_error_message").show();
+						error_address2 = true;
+				}
+				else if(address2_length > 0 && (address2_length < 5 || address2_length > 20)){
+					$("#address2_error_message").html("Should be between 5-20 characters");
+					$("#address2_error_message").show();
+					error_address2 = true;
+				}
+				else{
+					$("#address2_error_message").hide();
+				}
+				event.preventDefault();
+			}
+
+			function check_choose1(){
+				if ($("#sel1").prop("checked",false)) {
+					$("#choose1_error_message").html("Please choose one");
+					$("#choose1_error_message").show();
+				}
+				else{
+					$("#choose1_error_message").hide();
+				}
+				event.preventDefault();
+			}
+
+			function check_choose2(){
+				if ($("#sel2").prop("checked",false)) {
+					$("#choose2_error_message").html("Please choose one");
+					$("#choose2_error_message").show();
+				}
+				else{
+					$("#choose2_error_message").hide();
+				}
+				event.preventDefault();
+			}
+
+			function check_zip() {
+				var zip_length = $('#zip').val().length;
+
+				if(zip_length == 0){
+					$("#zip_error_message").html("This field is not required");
+					$("#zip_error_message").show();
+					error_zip = true;
+				}
+				else if(zip_length > 0 && (zip_length < 3 || zip_length > 8)){
+					$("#zip_error_message").html("Should be between 3-8 characters");
+					$("#zip_error_message").show();
+					error_zip = true;
+				}
+				else{
+					$("#zip_error_message").hide();
+				}
+				event.preventDefault();
+			}
+    	</script>
 </body>
 	
 

@@ -1,0 +1,53 @@
+.*{
+	margin: 0px;
+	padding: 0px;
+}
+.container{
+	width: 768px;
+}
+@media screen and (min-width: 768px){
+.header {
+    margin-bottom: 30px;
+}
+}
+@media screen and (max-width: 768px) {
+	.header{
+		padding: 0 15px 20px 15px;
+	}
+	h4{
+		margin-top: 28px;
+	}
+}
+.header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.pn{
+	display: inline-block;
+	float: left;
+	margin-bottom: 20px;
+    margin-top: 30px;
+}
+.button{
+	margin-top: 1.6em;
+}
+.jumbotron{
+    text-align: center;
+
+}
+.lead{
+	font-size: 21px;
+	font-weight: 200;
+	line-height: 1.4;
+}
+.footer{
+	padding-top: 19px;
+	border-top: 1px solid #e5e5e5;
+	color: #777;
+}
+.marketing{
+	margin-bottom: 5.5%
+}
+.col-lg-6{
+	padding: 0 30px;
+}
