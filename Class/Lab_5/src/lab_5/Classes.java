@@ -40,7 +40,7 @@ public class Classes {
                     }
                     studentList[index++] = std;
                     break;
-                case "Teaacher":
+                case "Teacher":
                     tch.print();
                     studentList[index++] = tch;
                     break;
