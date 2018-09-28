@@ -20,10 +20,10 @@ public class Main {
         List l = new List();
         do{
             System.out.println("========================");
-            System.out.println("1. Add.");
-            System.out.println("2. List.");
-            System.out.println("3. Search.");
-            System.out.println("4. Exit.");
+            System.out.println("1. Thêm.");
+            System.out.println("2. In.");
+            System.out.println("3. Tìm.");
+            System.out.println("4. Thoát.");
             System.out.print("Choice: ");
             int choice  = Integer.parseInt(new Scanner(System.in).nextLine());
             System.out.println("========================");
@@ -42,7 +42,7 @@ public class Main {
                     System.exit(0);
                     break;
                 default:
-                    System.out.println("Choice again!!");
+                    System.out.println("Mời bạn chọn lại!!");
             }
         }while(true);
     }
